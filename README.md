@@ -16,7 +16,7 @@ Help procurement and supply chain teams:
 
 ## 📊 Dataset
 
-- Source: [Kaggle Procurement KPI Dataset](https://www.kaggle.com/datasets/)
+- Source: [Kaggle Procurement KPI Dataset]([https://www.kaggle.com/datasets/](https://www.kaggle.com/datasets/shahriarkabir/procurement-kpi-analysis-dataset))
 - Rows: 777 purchase orders
 - Key Columns:
   - Supplier, Category, Quantity, Spend
@@ -41,6 +41,50 @@ Help procurement and supply chain teams:
 python3 scripts/load_data.py \
     --input data/processed/ \
     --output data/processed/procurement.db
-✈️ Step 2: Run SQL Queries
-    sqlite3 data/processed/procurement.db < sql/procurement_queries.sql
+```
 
+Once the script finishes, you should see:
+
+```
+Connected to database at data/processed/procurement.db  
+Loading Procurement KPI Analysis Dataset.csv into table 'Procurement KPI Analysis Dataset'...  
+Table 'Procurement KPI Analysis Dataset' loaded: 777 rows, 11 columns  
+All files loaded. Database connection closed.
+```
+
+No need to manually end the process — the Bash command exits automatically when done. You can proceed to the next step.
+
+### ✈️ Step 2: Run SQL Queries
+```bash
+sqlite3 data/processed/procurement.db < sql/procurement_queries.sql
+```
+
+### ✈️ Step 3: Explore Pivot Excel Workbook
+
+Open `pivot_tables.xlsx` in the `excel/` folder to explore:
+- Quarterly & Monthly spend and lead time trends
+- Supplier-wise breakdowns
+
+### ✈️ Step 4: Visualize in Tableau
+
+Open `procurement_dashboard.twb` in the `dashboard/` folder to explore:
+- Pareto chart of top suppliers by spend
+- Monthly performance trends
+- Defect analysis by category
+
+
+---
+
+## 🗓️ Time Period
+
+- Covers: **January 2022 to December 2023**
+- Enables seasonal and quarterly pattern analysis
+
+---
+## 📊 Key Insights
+
+- ✅ Top 20% of suppliers contribute ~80% of total spend
+- ✅ One product category shows the highest defect rate consistently
+- ✅ Lead time improved significantly after Q2 2022
+
+---
